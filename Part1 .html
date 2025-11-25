@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Part 1: Assembly Check</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 850px;
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #008000;
+            color: white;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #d0d0d0;
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .input-group input, 
+        .input-group select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #cccccc;
+            font-size: 0.95rem;
+        }
+
+        .upload-box {
+            border: 2px dashed #d0d0d0;
+            background: #fafafa;
+            height: 150px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-area {
+            margin-top: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #008000;
+            border: none;
+            padding: 14px;
+            color: white;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #006c00;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>
+        QA Part 1: Assembly Check
+        <span class="step-badge">STEP 1 OF 2</span>
+    </h2>
+
+    <hr />
+
+    <!-- Battery Identification -->
+    <div class="section">
+        <div class="section-title">1. Battery Identification</div>
+
+        <div class="grid-2">
+            <div class="input-group">
+                <label>Assessment Date</label>
+                <input type="date" />
+            </div>
+
+            <div class="input-group">
+                <label>Assessor Name</label>
+                <input type="text" placeholder="Name" />
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Serial Number (S/N)</label>
+            <input type="text" placeholder="BATT - 24V - XXX" />
+        </div>
+
+        <div class="grid-2">
+            <div class="input-group">
+                <label>Battery Type</label>
+                <input type="text" placeholder="e.g. LiFePO4" />
+            </div>
+
+            <div class="input-group">
+                <label>Nominal Capacity (Ah)</label>
+                <input type="number" placeholder="100" />
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Visual Documentation -->
+    <div class="section">
+        <div class="section-title">2. Visual Documentation</div>
+
+        <p>Capture mandatory pre-sealing evidence.</p>
+
+        <div class="grid-2">
+
+            <div>
+                <label><strong>Battery Overview Photo (Unsealed Unit)</strong></label>
+                <input type="file" />
+                <div class="upload-box">Upload Photo Here</div>
+            </div>
+
+            <div>
+                <label><strong>BMS Rating Screenshot (App View)</strong></label>
+                <input type="file" />
+                <div class="upload-box">Upload Screenshot Here</div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Electrical Consistency -->
+    <div class="section">
+        <div class="section-title">3. Electrical Consistency</div>
+
+        <div class="grid-2">
+            <div>
+                <h3>3.1 Voltage</h3>
+                <div class="input-group">
+                    <label>Open-Circuit Voltage (V)</label>
+                    <input type="number" placeholder="26.4" />
+                </div>
+
+                <div class="input-group">
+                    <label>Cell Voltage Spread (mV)</label>
+                    <input type="number" placeholder="15" />
+                </div>
+            </div>
+
+            <div>
+                <h3>3.2 Internal Resistance</h3>
+                <div class="input-group">
+                    <label>Avg. Resistance (mΩ)</label>
+                    <input type="number" placeholder="2.5" />
+                </div>
+
+                <div class="input-group">
+                    <label>Resistance Spread (mΩ)</label>
+                    <input type="number" placeholder="0.5" />
+                </div>
+            </div>
+        </div>
+
+        <div class="checkbox-area">
+            <input type="checkbox" />
+            <label>I confirm these readings are correct and the unit is ready for sealing.</label>
+        </div>
+    </div>
+
+    <button class="submit-btn">
+        Download Assembly Report (PDF)
+    </button>
+
+</div>
+
+</body>
+</html>
